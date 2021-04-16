@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { Navbar, NavbarBrand } from "reactstrap";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { DISHES } from "../components/shared/dishes";
 import { COMMENTS } from "../components/shared/comments";
 import Menu from "./menuComponent";
 import DishDetailsComponent from "./dishDetailsComponent";
+import Header from "./headerComponent";
+import Footer from "./footerComponent";
 
 export default class Main extends Component {
   constructor(props) {
@@ -22,11 +24,7 @@ export default class Main extends Component {
   render() {
     return (
       <div>
-        <Navbar dark color="primary">
-          <div className="container">
-            <NavbarBrand href="/">Restaurant</NavbarBrand>
-          </div>
-        </Navbar>
+        <Header />
         <Menu
           dishes={this.state.dishes}
           comments={this.state.comments}
@@ -42,6 +40,7 @@ export default class Main extends Component {
             (comment) => comment.dishId === this.state.selectedDish
           )}
         />
+        <Footer />
       </div>
     );
   }
