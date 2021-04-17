@@ -10,6 +10,7 @@ import Header from "./headerComponent";
 import Footer from "./footerComponent";
 import Contact from "./contactComponent";
 import Home from "./homeComponent";
+import About from "./aboutComponent";
 
 export default class Main extends Component {
   constructor(props) {
@@ -66,6 +67,11 @@ export default class Main extends Component {
           />
           <Route path="/menu/:dishId" component={DishWithId} />
           <Route exact path="/contactus" component={Contact} />
+          <Route
+            exact
+            path="/aboutus"
+            component={() => <About leaders={this.state.leaders} />}
+          />
           <Redirect to="/home" />
         </Switch>
         {/* <Menu
